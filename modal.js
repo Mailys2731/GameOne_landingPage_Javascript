@@ -39,6 +39,8 @@ function closeModal() {
 
   const successMessage = document.getElementById("successMessage")
   if(successMessage){successMessage.remove()}
+  const successBtn = document.getElementById("btn-successId")
+  if(successBtn){successBtn.remove()}
 
   
   modalbg.style.display = "none";

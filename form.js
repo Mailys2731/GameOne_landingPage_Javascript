@@ -6,7 +6,6 @@ function firstValidate() {
     if (!(regFirst.test(document.getElementById("first").value))) {
         first.parentNode.setAttribute("data-error-visible", "true");
         first.parentNode.setAttribute("data-error", "*Veuillez saisir 2 caractères minimum.")
-        console.log("erreur prenom")
 
         return false
     }
@@ -24,7 +23,6 @@ const lastValidate = () => {
         let last = document.getElementById("last")
         last.parentNode.setAttribute("data-error-visible", "true");
         last.parentNode.setAttribute("data-error", "*Veuillez saisir 2 caractères minimum.")
-        console.log("Nom invalide ou manquant")
         return false;
     }
     else {
@@ -40,7 +38,6 @@ const emailValidate = () => {
         let email = document.getElementById("email")
         email.parentNode.setAttribute("data-error-visible", "true");
         email.parentNode.setAttribute("data-error", "*Veuillez entrer une adresse mail valide.")
-        console.log("Email invalide ou manquant")
         return false;
     }
     else {
@@ -55,7 +52,6 @@ const birthdateValidate = () => {
     if (!(birthdate.value)) {
         birthdate.parentNode.setAttribute("data-error-visible", "true");
         birthdate.parentNode.setAttribute("data-error", "*Veuillez entrer votre date de naissance.")
-        console.log("Date de naissance invalide ou manquant")
         return false;
     }
     else {
@@ -72,7 +68,6 @@ const quantityValidate = () => {
         let quantity = document.getElementById("quantity")
         quantity.parentNode.setAttribute("data-error-visible", "true");
         quantity.parentNode.setAttribute("data-error", "*Veuillez entrer un nombre de tournois.")
-        console.log("erreur quantity")
 
         return false;
     }
@@ -141,6 +136,7 @@ const validate =  (event) => {
 
         const modal = document.getElementById("modal")
 
+        // Création du success message
         let successMessage = document.createElement("div")
         let successMessageContent = document.createElement("p")
 
@@ -149,11 +145,28 @@ const validate =  (event) => {
         successMessageContent.setAttribute('class', 'label')
         modal.appendChild(successMessage)
         successMessage.appendChild(successMessageContent)
-        console.log("okkkkkkkkk")
+
+        // Création du bouton fermer
+        let successBtn = document.createElement("button")
+        successBtn.setAttribute("class", "btn-success")
+        successBtn.setAttribute("id", "btn-successId")
+        successBtn.textContent = "Fermer"
+        modal.appendChild(successBtn)
+        successBtn.addEventListener("click", closeModal)
+
+
+        console.log("Le formulaire est correctement renseigné")
         return true
 
         
     }
+
+    console.log("Il y a une erreur dans le formulaire")
     return false
+
 }
 
+const btnSuccess = document.getElementById("btn-successId")
+
+if (btnSuccess){
+}
